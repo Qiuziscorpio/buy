@@ -1,0 +1,38 @@
+<template>
+  <view class="cardbox">
+    <view class="card-head">
+      <image mode="aspectFill" src="{{card.AvatarUrl}}"/>
+    </view>
+    <view class="card-content">
+      <view class="card-subtitle">
+        {{card.Name}}
+      </view>
+      <view class="card-body">
+        <view class="card-body-text">
+          测试君测试君测试君
+        </view>  
+        <view class="card-body-img">
+          <image mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1512564903&di=e6fe269e5bcafdc01dd2c6bf36b8d552&src=http://i1.szhomeimg.com/o/2013/12/23/1223154551839.JPG"></image>
+        </view>       
+      </view>      
+    </view>    
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Card extends wepy.component {
+    props = {
+      card: Object
+    }
+
+    data = {
+    }
+
+    methods = {
+    }
+  }
+</script>
+
+<style lang="less" src="card.less"></style>

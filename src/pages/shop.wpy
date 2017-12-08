@@ -1,0 +1,72 @@
+<template>
+  <view>
+    <tabview :tab.sync="tab">
+      <view slot="content">
+        <repeat for="{{cardList}}" key="card" index="index" item="card">
+          <card :card="card"></card>
+        </repeat>
+      </view>
+    </tabview>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import tabview from '../components/tab'
+  import card from '../components/card'
+
+  export default class Shop extends wepy.page {
+    config = {
+      navigationBarTitleText: '朋友购'
+    }
+
+    components = {
+      tabview: tabview,
+      card: card
+    }
+
+    mixins = []
+
+    data = {
+      tab: [{
+        text: '购物计划',
+        active: 'active'
+      },
+      {
+        text: '帮忙购物',
+        active: ''
+      }],
+      cardList: [{
+        AvatarUrl: 'http://imgtu.5011.net/uploads/content/20170710/2912711499666681.jpg',
+        Name: '秋子',
+        Text: '',
+        Img: ''
+      },
+      {
+        AvatarUrl: 'http://www.jf258.com/uploads/2013-08-22/031043540.jpg',
+        Name: '小绵羊',
+        Text: '',
+        Img: ''
+      }]
+    }
+
+    computed = {
+
+    }
+
+    methods = {
+
+    }
+  
+    onShareAppMessage(res) {
+      return {
+        title: '哎呦, 你朋友在这里帮你购买了....',
+        path: 'pages/shop'
+      }
+    }
+
+    onLoad() {
+
+    }
+  }
+</script>

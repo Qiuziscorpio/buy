@@ -1,0 +1,53 @@
+@import '../assets/theme/color.less';
+
+.cardbox{
+    padding: 25rpx 30rpx;
+    display: flex;
+    position: relative;
+}
+
+.cardbox::after{
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 200%;
+  border: 1rpx solid #e1e1e0;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transform-origin: 0 0;   
+  z-index: 99;  
+
+}
+
+.card-head{
+    flex:  0 0 84rpx;
+    width: 84rpx;
+    height: 84rpx;
+    image{
+        width: 84rpx;
+        height: 84rpx;        
+    }
+}
+
+.card-content{
+  flex:  0 0 1;
+  margin-left: 20rpx;
+  .card-subtitle{
+    color: #576b95;
+    font-size: 16px;
+    margin-bottom: 22rpx;
+  }
+  .card-body-img{
+    image{
+      width: 158rpx;
+      height: 158rpx;
+      margin-top: 10rpx;
+      margin-right: 10rpx;
+    }
+  }
+  .card-body-text{
+    color: #000;
+    font-size: 16px;
+  }
+}

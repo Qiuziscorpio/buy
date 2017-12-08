@@ -1,0 +1,35 @@
+<template>
+  <view class="tbox">
+    <view class="tab-box">
+      <view wx:for="{{tab}}" wx:key="t" wx:for-item="tab" wx:for-index="idx"  @tap="tabActive({{idx}})" class="tab-label {{tab.active}}">
+        {{tab.text}}
+      </view>   
+    </view>
+    <slot class="tab-content" name="content"></slot>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Tab extends wepy.component {
+    props = {
+      tab: Array
+    }
+
+    data = {
+    }
+
+    methods = {
+      tabActive(index, e) {
+        this.tab.map(res => {
+          res.active = ''
+        })
+        this.tab[index].active = 'active'
+        this.$emit('tabActive', index)
+      }
+    }
+  }
+</script>
+
+<style lang="less" src="tab.less"></style>

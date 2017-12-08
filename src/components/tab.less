@@ -1,0 +1,26 @@
+@import '../assets/theme/color.less';
+
+
+.tab-box{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    .text-gray;
+    font-size: 16px;
+    .tab-label{
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+        display: flex;
+        align-items: center;    
+        justify-content: center;            
+        height: 88rpx;
+        border-bottom: 4rpx solid #fff;
+    }
+    .tab-label.active {
+        .text-pink;
+        border-color: @pink;
+    }
+}

@@ -1,0 +1,47 @@
+<style lang="less"></style>
+<template>
+  <view class="container">
+    <view>我的界面</view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import List from '../components/list'
+  import Panel from '@/components/panel' // alias example
+  import Counter from 'counter' // alias example
+  import Group from '../components/group'
+  import Toast from 'wepy-com-toast'
+  import testMixin from '../mixins/test'
+
+  export default class Me extends wepy.page {
+    config = {
+      navigationBarTitleText: '我'
+    }
+    components = {
+      panel: Panel,
+      counter1: Counter,
+      counter2: Counter,
+      list: List,
+      group: Group,
+      toast: Toast
+    }
+
+    mixins = [testMixin]
+
+    data = {
+    }
+
+    computed = {
+
+    }
+
+    methods = {
+
+    }
+
+    onLoad() {
+
+    }
+  }
+</script>
