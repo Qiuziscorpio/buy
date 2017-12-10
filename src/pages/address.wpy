@@ -1,0 +1,62 @@
+
+<template>
+  <view class="address-box">
+    <view class="address-item">
+      <view class="label">
+        <navigator url="../../UpAddress" hover-class="none">编辑</navigator>
+        <text style="margin-left: 25rpx;" @tap="del">  删除</text>
+      </view>
+      <view class="title"><text>秋子</text> <text style="margin-left: 25rpx;">15992457310</text> </view>
+      <view class="subtitle">广州天河区</view>
+    </view> 
+    <view class="address-item">
+      <view class="label">
+        <navigator url="../../UpAddress" hover-class="none">编辑</navigator>
+        <text style="margin-left: 25rpx;">  删除</text>
+      </view>
+      <view class="title"><text>秋子</text> <text style="margin-left: 25rpx;">15992457310</text> </view>
+      <view class="subtitle">广州天河区</view>
+    </view>    
+    <navigator url="../../UpAddress" hover-class="none" class="item item-between">
+      <view>
+        <text class="icon iconfont icon-shangchuantupian text-blue"></text>
+        <text class="item-title"> 新增地址</text>
+      </view>     
+    </navigator>     
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Address extends wepy.page {
+    config = {
+      navigationBarTitleText: '收货信息'
+    }
+    components = {
+    }
+
+    data = {
+    }
+
+    computed = {
+
+    }
+
+    methods = {
+      async del() {
+        let complete = await wepy.showModal({
+          title: '提示',
+          content: '是否删除?'
+        })
+        console.log(complete, 'complete')
+      }
+    }
+
+    onLoad() {
+
+    }
+  }
+</script>
+
+<style lang="less" src="address.less"></style>

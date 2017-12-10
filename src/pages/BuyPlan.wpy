@@ -1,0 +1,160 @@
+
+<template>
+  <view class="addgoods-box">
+    <view class="itemgroup">
+      <view class="item item-between">
+        <view class="item-form-input">
+          <view class="label required">购买地</view>
+          <input placeholder="请输入购买地"  maxlength="15"/>
+        </view>      
+      </view>
+      <view class="item item-between">
+        <view class="item-form-input">
+          <view class="label required">返程地</view>
+          <input placeholder="请输入返程地"  maxlength="15"/>
+        </view>      
+      </view> 
+      <view class="item item-between">
+        <view class="item-form-input">
+          <view class="label required">返程时间</view>
+          <input placeholder="请输入返程时间"  maxlength="15"/>
+        </view>      
+      </view>                          
+    </view>
+    <view class="itemgroup">          
+      <view class="item item-between">
+        <view class="item-form-input">
+          <view class="label required">说点什么</view>
+          <textarea placeholder="说点什么呢" maxlength="200" @input="getSignValue"></textarea>
+          <view class="label-rb  text-gray">{{signLength}} /200 </view>
+        </view>   
+      </view>                           
+    </view>    
+    <view class="itemgroup">
+      <view class="item item-between margin-no">
+        <view @tap="upImg(0)">
+          <view class="label"> <text class="icon iconfont icon-shangchuantupian text-blue"></text>  上传相关图片</view>
+        </view>   
+        <text wx:if="{{img[0].isDel}}" @tap="delImg(0)" class="icon iconfont icon-del text-gray"></text>          
+      </view>     
+      <view class="imggroup item">
+        <image wx:for="{{img[0].imgList}}" wx:for-item="cover" wx:key="cover" wx:for-index="idx" class="{{cover.active}}" @tap="activeImg(0, {{idx}})" src="{{cover.url}}"></image>
+      </view>  
+    </view>                  
+    <view class="btn-panel">
+      <button class="btn-green">提交</button>
+    </view>    
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class BuyPlan extends wepy.page {
+    config = {
+      navigationBarTitleText: '购物计划'
+    }
+    components = {
+    }
+
+    data = {
+      signLength: 0,
+      isCoverDel: false,
+      img: {
+        0: {
+          isDel: false,
+          imgList: [{
+            url: 'http://i1.szhomeimg.com/o/2013/12/23/1223154551839.JPG',
+            active: ''
+          },
+          {
+            url: 'http://i1.szhomeimg.com/o/2013/12/23/1223154551839.JPG',
+            active: ''
+          },
+          {
+            url: 'http://i1.szhomeimg.com/o/2013/12/23/1223154551839.JPG',
+            active: ''
+          }]
+        },
+        1: {
+          isDel: false,
+          imgList: [{
+            url: 'http://i1.szhomeimg.com/o/2013/12/23/1223154551839.JPG',
+            active: ''
+          },
+          {
+            url: 'http://i1.szhomeimg.com/o/2013/12/23/1223154551839.JPG',
+            active: ''
+          },
+          {
+            url: 'http://i1.szhomeimg.com/o/2013/12/23/1223154551839.JPG',
+            active: ''
+          }]
+        }
+      }
+    }
+
+    computed = {
+
+    }
+
+    methods = {
+      getSignValue(e) {
+        this.signLength = e.detail.value.length
+      },
+      async upImg(type) {
+        try {
+          let complete = await wepy.chooseImage({
+            sizeType: ['compressed']
+          })
+          console.log(complete)
+          let img = this.img[type]
+          img.unshift({
+            url: '',
+            active: ''
+          })
+          this.$apply()
+        } catch (e) {
+
+        }
+      },
+      activeImg(type, idx) {
+        let img = this.img[type]
+        let activeimgList = this.img[type].imgList
+        let active = []
+        if (activeimgList[idx].active === '') {
+          activeimgList[idx].active = 'active'
+        } else {
+          activeimgList[idx].active = ''
+        }
+  
+        activeimgList.map(res => {
+          if (res.active === 'active') {
+            active.push(res.active)
+          }
+        })
+        if (active.length > 0) {
+          img.isDel = true
+        } else {
+          img.isDel = false
+        }
+      },
+      delImg(type) {
+        wepy.showModal({
+          title: '提示',
+          content: '是否确定删除?',
+          success: function(res) {
+            if (res.confirm) {
+            }
+          }
+        })
+      }
+    }
+
+    onLoad() {
+
+    }
+  }
+</script>
+
+<style lang="less" src="AddGoods.less"></style>

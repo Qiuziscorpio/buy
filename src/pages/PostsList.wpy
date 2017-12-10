@@ -1,0 +1,101 @@
+
+<template>
+  <view class="postsList-box">
+    <view  class="item item-between" style="box-shadow: 0 0 20rpx rgba(38, 40, 45, 0.2)">
+      <view></view>
+      <view class="item-head">
+        <view class="item-subtitle" style="text-align: right">
+          <view> <text>        秋子</text></view>
+          <view class="subtitle text-gray">一束阳光</view>
+        </view>
+        <view class="item-logo">
+          <image mode="aspectFill" src="http://img0.imgtn.bdimg.com/it/u=3361047225,1055271352&fm=214&gp=0.jpg"></image>
+        </view>        
+      </view>     
+    </view> 
+    <view>
+      <view class="cardbox">
+        <view class="card-head" >
+          <text class="label-days">08 </text>12月
+        </view>
+        <view class="card-content">           
+          <view class="card-body">
+            <view class="card-body-text">测试君测试君测试君
+            </view>  
+            <view class="card-body-img">
+              <image mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1512564903&di=e6fe269e5bcafdc01dd2c6bf36b8d552&src=http://i1.szhomeimg.com/o/2013/12/23/1223154551839.JPG"></image>
+            </view>      
+          </view>      
+        </view>    
+      </view>    
+      <view class="cardbox">
+        <view class="card-head" >
+          <text class="label-days">02 </text>12月
+        </view>
+        <view class="card-content">           
+          <view class="card-body">
+            <view class="card-body-text">测试君测试君测试君
+            </view>  
+            <view class="card-body-img">
+              <image mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1512564903&di=e6fe269e5bcafdc01dd2c6bf36b8d552&src=http://i1.szhomeimg.com/o/2013/12/23/1223154551839.JPG"></image>
+            </view>      
+          </view>      
+        </view>    
+      </view>
+    </view>     
+    <view>
+      <view class="cardbox">
+        <text class="label-days">2016</text>
+      </view>
+      <view class="cardbox">
+        <view class="card-head" >
+          <text class="label-days">02 </text>12月
+        </view>
+        <view class="card-content">           
+          <view class="card-body">
+            <view class="card-body-text">测试君测试君测试君
+            </view>  
+            <view class="card-body-img">
+              <image mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1512564903&di=e6fe269e5bcafdc01dd2c6bf36b8d552&src=http://i1.szhomeimg.com/o/2013/12/23/1223154551839.JPG"></image>
+            </view>      
+          </view>      
+        </view>    
+      </view>
+    </view> 
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class PostsList extends wepy.page {
+    config = {
+      navigationBarTitleText: '我的发布'
+    }
+    components = {
+    }
+  
+    data = {
+    }
+
+    computed = {
+
+    }
+
+    methods = {
+
+    }
+  
+    onShareAppMessage(res) {
+      return {
+        title: '哇哇~秋子发了好多代购产品.....',
+        path: 'pages/PostsList'
+      }
+    }
+  
+    onLoad() {
+
+    }
+  }
+</script>
+<style lang="less" src="PostsList.less"></style>

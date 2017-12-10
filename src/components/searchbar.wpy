@@ -1,0 +1,69 @@
+<template>
+    <view class="page__bd">
+      <view class="weui-search-bar">
+          <view class="weui-search-bar__form">
+              <view class="weui-search-bar__box">
+                  <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                  <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{isKeypad}}" @input="inputTyping" @confirm="confirm"/>
+                  <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" @tap="cancelInput">
+                      <icon type="clear" size="14"></icon>
+                  </view>
+              </view>
+              <label class="weui-search-bar__label" hidden="{{inputShowed}}" @tap="showInput">
+                  <icon class="weui-icon-search" type="search" size="14"></icon>
+                  <view class="weui-search-bar__text">搜索</view>
+              </label>
+          </view>
+          <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" @tap="hideInput">取消</view>
+      </view>
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class SearchBar extends wepy.component {
+    props = {
+      tagVal: Object
+    }
+
+    data = {
+      inputShowed: false,
+      isKeypad: false,
+      inputVal: ''
+    }
+
+    watch = {
+      tagVal(e) {
+        this.inputVal = e.text
+        this.inputShowed = true
+        this.$apply()
+        this.$emit('inputVal', this.inputVal)
+      }
+    }
+
+    methods = {
+      showInput () {
+        this.inputShowed = true
+        this.isKeypad = true
+      },
+      hideInput () {
+        this.inputVal = ''
+        this.inputShowed = false
+        this.isKeypad = false
+        this.$emit('hideInput', this.inputVal)
+      },
+      cancelInput () {
+        this.inputVal = ''
+      },
+      inputTyping (e) {
+        this.inputVal = e.detail.value
+      },
+      confirm(e) {
+        this.$emit('inputVal', this.inputVal)
+      }
+    }
+  }
+</script>
+
+<style lang="less" src="searchbar.less"></style>

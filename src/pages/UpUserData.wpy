@@ -1,0 +1,69 @@
+
+<template>
+  <view class="up-box">
+    <view class="item item-between">
+      <view class="item-head">
+        <view class="item-logo">
+          <image mode="aspectFill" src="http://img0.imgtn.bdimg.com/it/u=3361047225,1055271352&fm=214&gp=0.jpg"></image>
+        </view>
+      </view>
+      <view @tap="chooseImage">
+        <text class="icon iconfont icon-111 text-blue font-s20"></text>
+      </view>      
+    </view>
+    <view class="item item-between item-form-input">
+      <input placeholder="请输入昵称至少一个字符"  maxlength="15"/>
+    </view>
+    <view class="item item-between">
+      <view class="item-form-input">
+        <input placeholder="请输入所在地区" maxlength="30"/>
+        <view> <text class="icon iconfont icon-location text-blue font-s20"></text> </view>
+      </view>
+    </view>   
+    <view class="item item-between">
+      <view class="item-form-input">
+        <textarea placeholder="请输入个性签名" maxlength="200" @input="getSignValue"></textarea>
+        <view class="label-rb  text-gray">{{signLength}} /200 </view>
+      </view>
+    </view> 
+    <view class="btn-panel">
+      <button class="btn-green">更新</button> 
+    </view>    
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class UpUserData extends wepy.page {
+    config = {
+      navigationBarTitleText: '编辑我的信息',
+      disableScroll: true
+    }
+    components = {
+    }
+
+    data = {
+      signLength: 0
+    }
+
+    computed = {
+
+    }
+
+    methods = {
+      getSignValue(e) {
+        this.signLength = e.detail.value.length
+      },
+      async chooseImage() {
+        await wepy.chooseImage()
+      }
+    }
+
+    onLoad() {
+
+    }
+  }
+</script>
+
+<style lang="less" src="UpUserData.less"></style>

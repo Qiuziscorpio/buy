@@ -1,0 +1,35 @@
+@import './../assets/theme/theme.less';
+
+.addgoods-box{
+    padding-top: 30rpx;
+    box-sizing: border-box;
+    background: #efeff4;
+}
+
+.imggroup{
+    display: flex;
+    flex-wrap: wrap;
+    image{
+        width:158rpx;
+        height:158rpx;
+        margin-bottom:10rpx;
+        margin-right:10rpx;
+        display:block;
+        position: relative;
+    } 
+    image.active::after{
+        content: ' ';
+        position: absolute;
+        z-index: 99;
+        top: 0;
+        left: 0 ;
+        width: 100%;
+        height: 100%;
+        background:rgba(255,255,255,0.6);        
+    }
+        
+}
+
+.margin-no{
+    margin-bottom: 0;
+}

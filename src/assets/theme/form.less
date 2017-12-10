@@ -1,0 +1,39 @@
+.item-form-input{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	position: relative;
+	input,
+	textarea{
+		font-size: 15px;
+		color: #000; 
+		flex: 1;	
+		width: 100%;	
+	}
+	.label-rt{
+		position: absolute;
+		z-index: 99;
+		top: 24rpx;
+		right: 30rpx;
+	}
+	.label-rb{
+		position: absolute;
+		z-index: 99;
+		bottom: 24rpx;
+		right: 30rpx;
+	}
+	.label{
+		margin-right: 46rpx;
+	}	
+}
+
+.required{
+	position: relative;
+}
+.required::after{
+	position: absolute;
+	content: ' * ';
+	top:-10rpx;
+	right:-12rpx;	
+	color: red;
+}

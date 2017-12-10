@@ -1,0 +1,33 @@
+<template>
+    <view class="good-item">
+      <image mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1512564903&di=e6fe269e5bcafdc01dd2c6bf36b8d552&src=http://i1.szhomeimg.com/o/2013/12/23/1223154551839.JPG"></image>
+      <view class="good-content">
+        <view class="title">
+          海淘
+          <view class="subtitle">哈哈哈</view>
+        </view>
+        <view class="label">
+          <view>购买地: </view>
+          <view class="text-pink">¥ 55 </view>
+        </view>
+      </view>
+    </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Good extends wepy.component {
+    props = {
+      goods: Object
+    }
+
+    data = {
+    }
+
+    methods = {
+    }
+  }
+</script>
+
+<style lang="less" src="good.less"></style>

@@ -1,0 +1,49 @@
+<template>
+  <view class="goodslist-box">
+    <repeat for="{{goodsData}}" key="goods" index="index" item="goods">
+      <!-- goods -->
+      <navigator url="../../GoodsDetails" hover-class="none">
+        <goods :goods="goods"></goods>
+      </navigator>
+    </repeat>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import goods from '../components/good'
+
+  export default class GoodsList extends wepy.page {
+    config = {
+      navigationBarTitleText: '商品列表'
+    }
+  
+    components = {
+      goods: goods
+    }
+
+    data = {
+      goodsData: [{}, {}]
+    }
+
+    computed = {
+
+    }
+
+    methods = {
+
+    }
+  
+    onShareAppMessage(res) {
+      return {
+        title: '哎呦, 你朋友在这里帮你购买了....',
+        path: 'pages/GoodsList'
+      }
+    }
+  
+    onLoad() {
+
+    }
+  }
+</script>
+<style lang="less" src="GoodsList.less"></style>

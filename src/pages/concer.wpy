@@ -1,0 +1,69 @@
+<template>
+  <view>
+    <view wx:for="{{cardList}}" wx:for-item="card" wx:for-index="idx" wx:key="card"> 
+      <view class="cardbox">
+        <view class="card-head">
+          <image mode="aspectFill" src="{{card.AvatarUrl}}"/>
+        </view>
+        <view class="card-content">
+          <view class="card-subtitle">
+            {{card.Name}}
+          </view>
+          <view class="card-title" hidden="{{card.type===1}}">
+            <view>购买地：<text>香港</text></view>
+            <view>返程地：<text>深圳南山区</text></view>
+            <view>返程时间：<text>2017年11月11日</text></view>
+          </view>
+          <view class="card-title" hidden="{{card.type===0}}">
+            <view>购买地：<text>香港</text></view>
+            <view>收货地址：<text>深圳南山区</text></view>
+            <view>收货时间：<text>2017年11月11日</text></view>
+          </view>            
+          <view class="card-body">
+            <view class="card-body-text">
+              测试君测试君测试君
+            </view>
+          </view>      
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Concer extends wepy.page {
+    config = {
+      navigationBarTitleText: '我的关注'
+    }
+    components = {
+    }
+
+    data = {
+      cardList: [{
+        AvatarUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1512564903&di=e6fe269e5bcafdc01dd2c6bf36b8d552&src=http://i1.szhomeimg.com/o/2013/12/23/1223154551839.JPG',
+        Name: '秋子',
+        type: 1
+      },
+      {
+        AvatarUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1512564903&di=e6fe269e5bcafdc01dd2c6bf36b8d552&src=http://i1.szhomeimg.com/o/2013/12/23/1223154551839.JPG',
+        Name: '我是求购者',
+        type: 0
+      }]
+    }
+
+    computed = {
+
+    }
+
+    methods = {
+
+    }
+
+    onLoad() {
+
+    }
+  }
+</script>
+<style lang="less" src="concer.less"></style>
