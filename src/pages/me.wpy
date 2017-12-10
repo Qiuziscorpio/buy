@@ -1,37 +1,76 @@
-<style lang="less"></style>
+
 <template>
-  <view class="container">
-    <view>我的界面</view>
+  <view class="me-box">
+    <navigator url="../../UpUserData" hover-class="none" class="item item-between">
+      <view class="item-head">
+        <view class="item-logo">
+          <image mode="aspectFill" src="http://img0.imgtn.bdimg.com/it/u=3361047225,1055271352&fm=214&gp=0.jpg"></image>
+        </view>
+        <view class="item-subtitle">
+          <view>秋子</view>
+          <view class="subtitle text-gray">一束阳光</view>
+        </view>
+      </view>
+      <view>
+        <text class="icon iconfont icon-Arrow text-gray-I"></text>
+      </view>      
+    </navigator>
+    <navigator url="../../GoodsList" hover-class="none" class="item item-between">
+      <view>
+          <text class="icon iconfont"></text>
+          <text class="item-title">商品列表</text>
+      </view>
+      <view>
+        <text class="icon iconfont icon-Arrow text-gray-I"></text>
+      </view>
+    </navigator> 
+    <view class="itemgroup">
+      <navigator url="../../PostsList" hover-class="none" class="item item-between">
+        <view>
+            <text class="icon iconfont"></text>
+            <text class="item-title">我的发布</text>
+        </view>
+        <view>
+          <text class="icon iconfont icon-Arrow text-gray-I"></text>
+        </view>      
+      </navigator>
+      <navigator url="../../concer" hover-class="none" class="item item-between">
+        <view>
+            <text class="icon iconfont"></text>
+            <text class="item-title">我的关注</text>
+        </view>
+        <view>
+          <text class="icon iconfont icon-Arrow text-gray-I"></text>
+        </view>      
+      </navigator>      
+    </view> 
+    <navigator url="../../address" hover-class="none" class="item item-between">
+      <view>
+          <text class="icon iconfont"></text>
+          <text class="item-title">收货信息</text>
+      </view>
+      <view>
+        <text class="icon iconfont icon-Arrow text-gray-I"></text>
+      </view>
+    </navigator>                  
   </view>
 </template>
 
 <script>
   import wepy from 'wepy'
-  import List from '../components/list'
-  import Panel from '@/components/panel' // alias example
-  import Counter from 'counter' // alias example
-  import Group from '../components/group'
-  import Toast from 'wepy-com-toast'
-  import testMixin from '../mixins/test'
 
   export default class Me extends wepy.page {
     config = {
-      navigationBarTitleText: '我'
+      navigationBarTitleText: '我',
+      disableScroll: true
     }
+  
     components = {
-      panel: Panel,
-      counter1: Counter,
-      counter2: Counter,
-      list: List,
-      group: Group,
-      toast: Toast
     }
-
-    mixins = [testMixin]
-
+  
     data = {
     }
-
+  
     computed = {
 
     }
@@ -45,3 +84,5 @@
     }
   }
 </script>
+
+<style lang="less" src="me.less"></style>

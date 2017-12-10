@@ -31,10 +31,14 @@
 }
 
 .card-content{
-  flex:  0 0 1;
+  flex: 1;
   margin-left: 20rpx;
   .card-subtitle{
     color: #576b95;
+    font-size: 16px;
+    margin-bottom: 22rpx;
+  }
+  .card-title{
     font-size: 16px;
     margin-bottom: 22rpx;
   }
@@ -44,6 +48,19 @@
       height: 158rpx;
       margin-top: 10rpx;
       margin-right: 10rpx;
+      display: block;
+    }
+  }
+  .card-body-foot{
+    margin-top: 20rpx;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    .time-label{
+      color: #737373;
+      font-size: 13px;
     }
   }
   .card-body-text{

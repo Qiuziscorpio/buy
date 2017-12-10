@@ -26,7 +26,7 @@
           res.active = ''
         })
         this.tab[index].active = 'active'
-        this.$emit('tabActive', index)
+        this.$emit('activeEvent', index)
       }
     }
   }

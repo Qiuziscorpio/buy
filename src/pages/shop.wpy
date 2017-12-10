@@ -1,9 +1,13 @@
 <template>
   <view>
-    <tabview :tab.sync="tab">
+    <!-- tab -->
+    <tabview :tab.sync="tab" @activeEvent.user="tabActive">
       <view slot="content">
-        <repeat for="{{cardList}}" key="card" index="index" item="card">
-          <card :card="card"></card>
+        <!-- searchbar -->
+        <searchbar></searchbar>
+        <repeat for="{{cardData}}" key="card" index="index" item="card">
+          <!-- card -->
+          <card :card="card" :type.sync="current"></card>
         </repeat>
       </view>
     </tabview>
@@ -13,6 +17,7 @@
 <script>
   import wepy from 'wepy'
   import tabview from '../components/tab'
+  import searchbar from '../components/searchbar'
   import card from '../components/card'
 
   export default class Shop extends wepy.page {
@@ -22,12 +27,14 @@
 
     components = {
       tabview: tabview,
+      searchbar: searchbar,
       card: card
     }
 
     mixins = []
 
     data = {
+      current: 0,
       tab: [{
         text: '购物计划',
         active: 'active'
@@ -36,18 +43,35 @@
         text: '帮忙购物',
         active: ''
       }],
-      cardList: [{
-        AvatarUrl: 'http://imgtu.5011.net/uploads/content/20170710/2912711499666681.jpg',
-        Name: '秋子',
-        Text: '',
-        Img: ''
+      cardList: {
+        0: [{
+          AvatarUrl: 'http://imgtu.5011.net/uploads/content/20170710/2912711499666681.jpg',
+          Name: '秋子',
+          Text: '',
+          Img: ''
+        },
+        {
+          AvatarUrl: 'http://www.jf258.com/uploads/2013-08-22/031043540.jpg',
+          Name: '小绵羊',
+          Text: '',
+          Img: ''
+        }],
+        1: [{
+          AvatarUrl: 'http://img.dongqiudi.com/uploads/avatar/2015/07/25/QM387nh7As_thumb_1437790672318.jpg',
+          Name: '小胖子',
+          Text: '',
+          Img: '',
+          takeTime: '2017年12月10日'
+        },
+        {
+          AvatarUrl: 'http://img0.imgtn.bdimg.com/it/u=2764371306,3467823016&fm=214&gp=0.jpg',
+          Name: '秋微凉',
+          Text: '',
+          Img: '',
+          takeTime: '2017年12月10日'
+        }]
       },
-      {
-        AvatarUrl: 'http://www.jf258.com/uploads/2013-08-22/031043540.jpg',
-        Name: '小绵羊',
-        Text: '',
-        Img: ''
-      }]
+      cardData: []
     }
 
     computed = {
@@ -55,7 +79,10 @@
     }
 
     methods = {
-
+      tabActive(index) {
+        this.cardData = this.cardList[index]
+        this.current = index
+      }
     }
   
     onShareAppMessage(res) {
@@ -66,7 +93,7 @@
     }
 
     onLoad() {
-
+      this.cardData = this.cardList[0]
     }
   }
 </script>

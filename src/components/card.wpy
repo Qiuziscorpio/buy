@@ -1,19 +1,35 @@
 <template>
   <view class="cardbox">
-    <view class="card-head">
+    <view class="card-head" catchtap="openPage({{card.Name}})">
       <image mode="aspectFill" src="{{card.AvatarUrl}}"/>
     </view>
     <view class="card-content">
-      <view class="card-subtitle">
-        {{card.Name}}
+      <view class="card-subtitle" catchtap="openPage({{card.Name}}">{{card.Name}}</view>
+      <view class="card-title" hidden="{{type===1}}">
+        <view>微信号：<text selectable="true">qiuweizi</text></view>
+        <view>购买地：<text selectable="true">香港</text></view>
+        <view>返程地：<text selectable="true">深圳南山区</text></view>
+        <view>返程时间：<text selectable="true">2017年11月11日</text></view>
       </view>
+      <view class="card-title" hidden="{{type===0}}">
+        <view>微信号：<text selectable="true">qiuweizi</text></view>
+        <view>购买地：<text selectable="true">香港</text></view>
+        <view>收货地址：<text selectable="true">深圳南山区</text></view>
+        <view>收货时间：<text selectable="true">2017年11月11日</text></view>
+      </view>            
       <view class="card-body">
-        <view class="card-body-text">
-          测试君测试君测试君
+        <view class="card-body-text">测试君测试君测试君
         </view>  
         <view class="card-body-img">
           <image mode="aspectFill" src="https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1512564903&di=e6fe269e5bcafdc01dd2c6bf36b8d552&src=http://i1.szhomeimg.com/o/2013/12/23/1223154551839.JPG"></image>
-        </view>       
+        </view>      
+        <view class="card-body-foot">
+          <view class="time-label">2017年11月1日 20:20</view>
+          <view class="foot-label">
+            <text class="ionc iconfont icon-xiaoxi text-green" catchtap="contact" style="margin-right: 25rpx;">  </text>
+            <text class="ionc iconfont icon-aixin text-pink" catchtap="counter">  </text>
+          </view>
+        </view> 
       </view>      
     </view>    
   </view>
@@ -24,6 +40,7 @@
 
   export default class Card extends wepy.component {
     props = {
+      type: Number,
       card: Object
     }
 
@@ -31,6 +48,21 @@
     }
 
     methods = {
+      openPage(id) {
+        wepy.navigateTo({
+          url: `PostsList?id=${id}`
+        })
+      },
+      contact() {
+        wepy.showModal({
+          title: '联系方式',
+          content: '长按选择复制微信号,qiuzi 到微信里面搜索添加',
+          showCancel: false
+        })
+      },
+      counter() {
+        console.log('关注成功')
+      }
     }
   }
 </script>

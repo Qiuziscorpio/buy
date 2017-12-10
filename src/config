@@ -7,3 +7,9 @@
 [remote "origin"]
 	url = https://github.com/Qiuziscorpio/buy.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
+[remote "buy"]
+	url = https://github.com/Qiuziscorpio/buy.git
+	fetch = +refs/heads/*:refs/remotes/buy/*
+	puttykeyfile = https://github.com/Qiuziscorpio/buy.git
+	tagopt = --no-tags
+	pushurl = https://github.com/Qiuziscorpio/buy.git

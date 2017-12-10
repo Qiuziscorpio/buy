@@ -1,9 +1,3 @@
-<style lang="less">
-  page {
-      font-size: 14px;
-      font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-}
-</style>
 
 <script>
 import wepy from 'wepy'
@@ -13,14 +7,24 @@ export default class extends wepy.app {
   config = {
     pages: [
       'pages/shop',
-      'pages/posts',
-      'pages/order',
       'pages/me',
+      'pages/posts',
+      'pages/PostsList',
+      'pages/AddGoods',
+      'pages/BuyPlan',
+      'pages/HelpBuy',
+      'pages/concer',
+      'pages/GoodsList',
+      'pages/address',
+      'pages/UpAddress',
+      'pages/UpUserData',
+      'pages/GoodsDetails',
+      'pages/order',
       'pages/index'
     ],
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#f86161',
+      navigationBarBackgroundColor: '#26282d',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: '#fff'
     },
